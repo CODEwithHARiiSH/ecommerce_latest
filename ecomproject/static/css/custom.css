@@ -1,0 +1,219 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Additional styling properties */
+}
+
+.my_footer p {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+
+
+
+.my_row_class
+{
+padding-top:15px;
+}
+
+.my_row_class .mx_auto
+{
+color:#000;
+font-size:12px;
+}
+
+.my_image{
+width:100%;
+height:auto;
+}
+.my_title{
+font-size:20px;
+text-transform:uppercase;
+font-family: "Montserrat", sans-serif;
+color:black;
+}
+
+.my_image_padding{
+padding:5px;
+
+}
+.my_font{
+color:black;
+font-family: "Montserrat", sans-serif;
+}
+.my_bottom_margin{
+margin-bottom:10px;
+}
+
+.card-body h4{
+font-size:14px;
+font-family: "Montserrat", sans-serif;
+text-transform:uppercase;
+letter-spacing:.2em;
+}
+.my_prod_row_class{
+padding-top:15px;
+padding-bottom:20px
+}
+
+.my_prod_row_class .mx_auto{
+color:#000;
+font-size:12px;
+text-decoration:none;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+}
+
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+.title-word-1 {
+  --color-1: #DF8453;
+  --color-2: #3D8DAE;
+  --color-3: #E4A9A8;
+}
+
+@keyframes color-animation {
+  0%    {color: var(--color-1)}
+  32%   {color: var(--color-1)}
+  33%   {color: var(--color-2)}
+  65%   {color: var(--color-2)}
+  66%   {color: var(--color-3)}
+  99%   {color: var(--color-3)}
+  100%  {color: var(--color-1)}
+}
+
+/* Here are just some visual styles. 🖌 */
+
+.containere {
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+}
+
+.tittle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+.my_search{
+padding-top:20px;
+}
+
+.my_custom_table{
+min-width:400px;
+font-size:14px;
+
+}
+.table_head{
+font-weight:normal;
+text-transform:uppercase;
+letter-spacing:.2em;
+background-color:#f8f8fa!important;
+}
+.custom_a{
+text-decoration:none;
+
+}
+.custom_plus{
+text-decoration:none;
+color:#868e96 !important;
+}
+.my_custom_button{
+margin-top:5px;
+
+}
+
+.anime {
+  background-image: url(https://media.giphy.com/media/l2QE5bDTfjOKHmme4/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+
+  font-family:ui-monospace;
+  font-size: 100px;
+  margin: 10px 0;
+}
+
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}

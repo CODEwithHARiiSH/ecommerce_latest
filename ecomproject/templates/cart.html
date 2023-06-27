@@ -1,0 +1,120 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block metadescription %}
+Lists for all your shopping needs Sign In Save time Add your items and ideas in one convenient location Give great gifts Remember your friends' lists and share yours Check price changes and stocks.
+{% endblock %}
+{% block title %}
+WishList - Old Is Gold Pvt.Ltd
+{% endblock %}
+{% block content %}
+
+{% if not cart_items %}
+<div>
+    <div class="text-center">
+        <br>
+        <h2 class="text-center my_title">
+            Add Your favorite ride to see the Wishlist
+        </h2>
+        <br>
+        <a href="{% url 'ecom:allprodcat' %}" class="btn btn-primary text-center" style="color:black">ALL VEHICLES</a>
+
+    </div>
+</div>
+{% else %}
+<div>
+    <div class="text-center">
+        <br>
+        <h2 class="text-center my_title">
+            Your WishList
+        </h2>
+        <br>
+    </div>
+    <div class="row me-auto">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table my_custom_table">
+                <thead class="table_head">
+                <tr>
+                    <th colspan="5">
+                        Your favorite vehicles
+
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in cart_items %}
+                <tr>
+                    <td>
+                        <a href="{% url 'cart:cart_detail' %}"><img src="{{i.product.image.url}}" alt="{{i.product.name}}" class="float-left rounded custom_image"> </a>
+
+                    </td>
+                    <td class="text-left">
+                        {{i.product.name}}
+                        <br>
+                        SKU: {{i.product.id}}
+                        <br>
+                        PRICE: INR {{i.product.price}}
+                        <br>
+                        Qty: {{i.quantity}} x {{ i }}
+
+                    </td>
+                    <td>
+                        TOTAL: {{i.sub_total}}
+                    </td>
+                    {% if i.quantity < i.product.stock %}
+                    <td>
+                        <a href="{% url 'cart:add_cart' i.product.id %}" class="custom_a"><i class="fa fa-plus custom_plus"></i></a>
+
+                        &nbsp;<a href="{% url 'cart:cart_remove' i.product.id %}" class="custom_a"><i class="fa fa-minus custom_plus"></i></a>
+                        <a href="{% url 'cart:delete_cart_item' i.product.id %}" class="custom_plus"><i class="fa fa-trash custom_plus"></i></a>
+                    </td>
+                    {% else %}
+                                        <td>
+                        &nbsp;<a href="{% url 'cart:cart_remove' i.product.id %}" class="custom_a"><i class="fa fa-minus custom_plus" aria-hidden="true"></i></a>
+                                            &nbsp; <a href="{% url 'cart:delete_cart_item' i.product.id %}" ><i class="fa fa-trash custom_plus"></i></a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table my_custom_table">
+                <thead class="table_head">
+                <tr>
+                    <th>
+                        CHECKOUT
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        please review your vehicle before proceeding payment
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        Your Total is : <strong>{{total}}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{% url 'pay:pay_detail' %}" class="btn btn-primary">CHECKOUT</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="mx-auto">
+                <a href="{% url 'ecom:allprodcat' %}" class="btn btn-secondary btn-block my_custom_button">All Vehicles</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endif %}
+{% endblock %}

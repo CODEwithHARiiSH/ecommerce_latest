@@ -1,0 +1,84 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% if category %}
+{{category.desc|truncatewords:155}}
+{% else %}
+welcome to Old Is Gold
+{% endif %}
+{% endblock %}
+{% block title %}
+{% if category %}
+{{category.name}} - Old Is Gold
+{% else %}
+Explore the world of vehicles
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<div>
+    <div class="mx_auto">
+
+        {% if category %}
+<!--        <center>-->
+<!--        <img  src="{{category.image.url}}"alt="{{category.name}}" height="250" width="auto">-->
+<!--            </center>-->
+    </div>
+    <br>
+    <div>
+        <h2 class="text-center">{{category.name}}</h2>
+        <p class="text-justify">{{category.desc}}</p>
+    </div>
+    {% else %}
+    <br>
+    <div>
+        <center>
+        <h2>Explore And book you dream ride</h2>
+        <b><b style="color:blue"> Auto</b><b style="color:black">kart</b>- Everything is affordable</b>
+        </center>
+    </div>
+    {% endif %}
+</div>
+<div>
+    <center>
+        <h4 >Our offers</h4>
+    </center>
+</div>
+<div  class="container">
+    <div class="row">
+        {% for i in products.object_list %}
+        <div class="my_bottom_margin  col-md-3" style="padding:20px;background: linear-gradient(to right, #0066ff 0%, #ff99cc 100%);">
+            <div class="card text-center" style="min-width:12rem;padding:10px;width: 200px;height: 250px;">
+                <a href="{{i.get_url}}"><img class="card-image-top my_image" src="{{i.image.url}}" alt="{{i.name}}" height="200" width="200"> </a>
+
+            <div class="card-body">
+            <h4 class="my_font">{{i.name}}</h4>
+            <p class="my_font">INR - {{i.price}}</p>
+
+            </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+
+        <hr>
+        <div class="text-center">
+            {% for pg in products.paginator.page_range %}
+            <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %} active {% endif %}">{{pg}}</a>
+        {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <br>
+</div>
+{% endblock %}
+
+
+
+
+
